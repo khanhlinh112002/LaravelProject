@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\T_FoodController;
+use App\Http\Requests\T_Food;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/food', [T_FoodController::class,'index']);
+Route::get('/addfood', [T_FoodController::class,'addForm']);
+Route::post('/addfood', [T_FoodController::class,'postAdd'])->name('add-food');
+Route::get('category', [T_FoodController::class,'Category']);
+Route::get('/detail/{id}',[T_FoodController::class, 'getDetail']);
