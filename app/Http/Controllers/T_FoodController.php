@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\T_Food;
 use App\Models\Type;
-
-use App\Http\Requests\Requests;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
+use App\Http\Requests\T_Foods;
 
 class T_FoodController extends Controller
 {
@@ -17,7 +18,7 @@ class T_FoodController extends Controller
     public function addForm(){
         return view('T_Food.addForm');
     }
-    public function postAdd(Request $request){
+    public function postAdd(T_Foods $request){
         $t_food = new T_Food();
         if ($request->hasFile('inputImage')){
             $file = $request -> file ('inputImage');
@@ -27,7 +28,6 @@ class T_FoodController extends Controller
         $fileName=null;
         if ($request->file('inputImage')!=null){
             $file_name=$request->file('inputImage')->getClientOriginalName();
-
         }
         $t_food->name=$request->inputName;
         $t_food->image=$file_name;
@@ -35,6 +35,7 @@ class T_FoodController extends Controller
         $t_food->price=$request->inputPrice;
         $t_food->discount=$request->inputDiscount;
         $t_food->category=$request->inputCategory;
+
         $t_food->save();
         return redirect('/food')->with('success', 'Đăng ký thành công');
     }
@@ -48,8 +49,8 @@ class T_FoodController extends Controller
         
         return view('T_Food.category',compact('type_product'));
     }
-    public function getDetail(Request $request){
-        $sanpham = T_Food::where('id',$request->id)->first();
+    public function getDetail($id){
+        $sanpham = T_Food::find($id);
         return view('T_Food.detail',compact('sanpham'));
     }
 }

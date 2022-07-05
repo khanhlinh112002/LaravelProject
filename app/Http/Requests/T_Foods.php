@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class T_Foods extends FormRequest
 {
@@ -13,7 +15,7 @@ class T_Foods extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
