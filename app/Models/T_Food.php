@@ -10,6 +10,6 @@ class T_Food extends Model
     use HasFactory;
     protected $table = 't__food';
     public function type(){
-        return $this->belongsTo('App\Models\Type','category','category');
+        return $this->belongsTo('App\Models\Type','category','id');
     }
 }

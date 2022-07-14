@@ -30,7 +30,7 @@ class T_Foods extends FormRequest
             'inputDescription'=>'required|string',
             'inputPrice'=>'required|numeric|min:15000',
             'inputCategory' =>'required|string',
-            'inputDiscount' => 'required|numeric|min:0|max:10000',
+            'inputDiscount' => 'required|numeric|min:10000',
             'inputImage'=>'required|filled|image|mimes:jpeg,png,jpg,gif,svg|max:25000',
         ];
     }
@@ -43,8 +43,7 @@ class T_Foods extends FormRequest
             'inputPrice.required'=>'Bạn chưa nhập giá thực phẩm',
             'inputPrice.min'=>'Giá sản phẩm phải lớn hơn hoặc bằng 15000',
             'inputCategory' =>'Bạn chưa nhập loại sản phẩm',
-            'inputDiscount.max' =>'Khuyến mãi phải bé hơn 10000',
-            'inputDiscount.min' =>'Khuyến mãi phải lớn hơn 0 hoặc băng 0',
+            'inputDiscount.min' =>'Khuyến mãi phải lớn hơn 10000 hoặc băng 10000',
             'inputImage.required'=>'Bạn chưa chọn ảnh',
             'inputImage.filled'=>'Bạn chưa chọn ảnh',
             'inputImage.max'=>'Kích thước ảnh tối đa là 25Mb',

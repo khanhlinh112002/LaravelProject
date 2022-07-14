@@ -9,9 +9,17 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<base href="{{asset('')}}"></base>
+	<link rel="stylesheet" href="source/assets/dest/css/font-awesome.min.css">
+	<link rel="stylesheet" href="source/assets/dest/vendors/colorbox/example3/colorbox.css">
+	<link rel="stylesheet" href="source/assets/dest/rs-plugin/css/settings.css">
+	<link rel="stylesheet" href="source/assets/dest/rs-plugin/css/responsive.css">
+	<link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
+	<link rel="stylesheet" href="source/assets/dest/css/animate.css">
+	<link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
 </head>
 <body>
-
+	@include('T_Food.header');
 
 	<div class="rev-slider">
 	@yield('content');

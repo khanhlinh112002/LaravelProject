@@ -20,7 +20,7 @@ class CreateTFoodTable extends Migration
             $table->string('image');
             $table->integer('price');
             $table->integer('discount');
-            $table->string('category');
+            $table->integer('category');
             $table->timestamps();
         });
     }

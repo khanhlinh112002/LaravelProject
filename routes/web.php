@@ -21,5 +21,6 @@ use App\Http\Requests\T_Food;
 Route::get('/food', [T_FoodController::class,'index']);
 Route::get('/addfood', [T_FoodController::class,'addForm']);
 Route::post('/addfood', [T_FoodController::class,'postAdd'])->name('add-food');
-Route::get('category', [T_FoodController::class,'Category']);
+Route::get('/category', [T_FoodController::class,'getCategory']);
 Route::get('/detail/{id}',[T_FoodController::class, 'getDetail']);
+Route::get('/type/{id}',[T_FoodController::class, 'Category']);

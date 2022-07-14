@@ -12,8 +12,8 @@ use App\Http\Requests\T_Foods;
 class T_FoodController extends Controller
 {
     public function index(){
-        $vegetable = T_Food::all();
-        return view('T_Food.index',compact('vegetable'));
+        $new_product = T_Food::all();
+        return view('T_Food.index',compact('new_product'));
     }
     public function addForm(){
         return view('T_Food.addForm');
@@ -39,15 +39,15 @@ class T_FoodController extends Controller
         $t_food->save();
         return redirect('/food')->with('success', 'Đăng ký thành công');
     }
-    public function getCategory($type){
-        $type_product = T_Food::where('category',$type)->get();
-        return view('T_Food.category',compact('type_product'));
+    public function getCategory(){
+        
+        return view('T_Food.category');
     }
     public function Category($type){
         $type_product = Type::all();
-        // $sp_theoloai = T_Food::where('category',$type)->get();
+        $sp_theoloai = T_Food::where('category',$type)->get();
         
-        return view('T_Food.category',compact('type_product'));
+        return view('T_Food.category',compact('type_product','sp_theoloai'));
     }
     public function getDetail($id){
         $sanpham = T_Food::find($id);

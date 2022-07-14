@@ -1,40 +1,47 @@
+
 <body>
     @extends('T_Food.layout')
     @section('content')
+<div class="container">
+		<div id="content" class="space-top-none">
+			<div class="main-content">
+				<div class="space60">&nbsp;</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="beta-products-list">
+							<h4>New Products</h4>
+							<div class="beta-products-details">
+								<p class="pull-left">5 styles found</p>
+								<div class="clearfix"></div>
+							</div>
 
-    <div class="w3-container">
-  <h2>This is my vegetable shop</h2>
-
-  <table class="w3-table-all">
-  <h5><a href="/addfood">Add new</h5>
-    <thead>
-      <tr class="w3-light-grey ww3-hover-green">
-        <th>Name</th>
-        <th>Description</th>
-        <th>Image</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th>Discount</th>
-        <th>Action</th>
-
-
-
-      </tr>
-    </thead>
-    @foreach($vegetable as $vg)
-    <tr class="w3-hover-green">
-      <td>{{$vg->name}}</td>
-      <td>{{$vg->description}}</td>
-      <td><img src="source/image/product/{{$vg->image}}"style="width:150px"></td>
-      <td>{{$vg->category}}</td>
-      <td>{{$vg->price}}</td>
-      <td>{{$vg->discount}}</td>
-      <td><a href="/detail/{{$vg->id}}">Detail</td>
-
-    </tr>
-    @endforeach
-  </table>
+							<div class="row">
+								@foreach($new_product as $np)
+								<div class="col-sm-3">
+									<div class="single-item">
+										<div class="single-item-header">
+											<a href="product.html"><img src="source/image/product/{{$np->image}}" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">{{$np->name}}</p>
+											<p class="single-item-price">
+												<span>{{$np->price}}</span>
+											</p>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="detail/{{$np->id}}">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								@endforeach
+							</div>
+						</div> <!-- .beta-products-list -->
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 @endsection
-</body>
-</html>
